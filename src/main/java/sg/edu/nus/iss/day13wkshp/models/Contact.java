@@ -8,7 +8,7 @@ public class Contact {
     private String phone;
     private final String id;
 
-    public Contact(String name, String email, String phone) {
+    public Contact() {
         // this.name = name;
         // this.email = email;
         // this.phone = phone;
@@ -49,7 +49,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact [email=" + email + ", id=" + id + ", name=" + name + ", phone=" + phone + "]";
+        return "contact [email=" + email + ", id=" + id + ", name=" + name + ", phone=" + phone + "]";
     }
 
 }

@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.tags.ArgumentAware;
 
 import sg.edu.nus.iss.day13wkshp.services.DatabaseService;
 
@@ -25,21 +26,13 @@ public class Day13wkshpApplication implements ApplicationRunner {
 		if (args.containsOption("dataDir")) {
 			final String dataDir = args.getOptionValues("dataDir").get(0);
 			dbSvc.setDataDir(new File(dataDir));
-			if (dbSvc.isDataDirValid()) {
+			if (!dbSvc.isDataDirValid()) {
 				System.out.printf("%s does not exist, is not a directory or not writeable.", dataDir);
 				System.exit(-1);
 			}
 			System.out.printf("Using %s as data directory\n", dataDir);
 		} else {
-			dbSvc.setDataDir(new File("./Users/kok/vttp/data"));
+			dbSvc.setDataDir(new File("/Users/kok/vttp/data"));
 		}
-	}
-
-	public boolean save() {
-		return false;
-	}
-
-	public void read(String fileId) {
-
 	}
 }
